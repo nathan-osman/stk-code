@@ -49,7 +49,8 @@ void STKInstancedSceneNode::render()
 {
     irr::video::IVideoDriver* driver = irr_driver->getVideoDriver();
     setFirstTimeMaterial();
-    driver->setTransform(video::ETS_WORLD, core::matrix4::EM4CONST_IDENTITY);
+    AbsoluteTransformation.setTranslation(vector3df(0., 0., 10.));
+    driver->setTransform(video::ETS_WORLD, AbsoluteTransformation);
 
     if (irr_driver->getPhase() == SOLID_NORMAL_AND_DEPTH_PASS)
     {

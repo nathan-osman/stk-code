@@ -250,7 +250,7 @@ void IrrDriver::renderGLSL(float dt)
             glTexParameteriv(GL_TEXTURE_2D, GL_TEXTURE_SWIZZLE_RGBA, swizzleMask);
         }
         m_scene_manager->drawAll(m_renderpass);
-
+        InstancedBox->render();
         PROFILER_POP_CPU_MARKER();
 
 		  if (World::getWorld()->getTrack()->isFogEnabled())
