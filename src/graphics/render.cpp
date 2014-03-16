@@ -208,7 +208,7 @@ void IrrDriver::renderGLSL(float dt)
         irr_driver->setProjMatrix(irr_driver->getVideoDriver()->getTransform(video::ETS_PROJECTION));
         irr_driver->setViewMatrix(irr_driver->getVideoDriver()->getTransform(video::ETS_VIEW));
         irr_driver->genProjViewMatrix();
-
+        InstancedBox->render();
 		PROFILER_POP_CPU_MARKER();
 
         // Todo : reenable glow and shadows
