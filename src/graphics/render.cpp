@@ -36,6 +36,7 @@
 #include "graphics/shaders.hpp"
 #include "graphics/shadow_importance.hpp"
 #include "graphics/stkmeshscenenode.hpp"
+#include "graphics/stkinstancedscenenode.hpp"
 #include "graphics/wind.hpp"
 #include "io/file_manager.hpp"
 #include "items/item.hpp"
@@ -49,6 +50,8 @@
 #include "utils/profiler.hpp"
 
 #include <algorithm>
+
+STKInstancedSceneNode *InstancedBox;
 
 void IrrDriver::renderGLSL(float dt)
 {
@@ -131,6 +134,8 @@ void IrrDriver::renderGLSL(float dt)
         repnode->setPosition(node->getTransformedBoundingBox().getCenter());
         transparent_glow_nodes.push_back(repnode);
     }
+
+    STKInstancedSceneNode *InstancedBox = new STKInstancedSceneNode(items->getItemModel(items->getItem(0)->getType()), m_scene_manager->getRootSceneNode(), m_scene_manager, -1);
 
     // Start the RTT for post-processing.
     // We do this before beginScene() because we want to capture the glClear()
